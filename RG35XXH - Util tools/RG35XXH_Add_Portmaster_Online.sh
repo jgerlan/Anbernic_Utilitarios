@@ -203,6 +203,8 @@ echo "Extracting PortMaster.zip..."
 
 unzip PortMaster.zip 
 
+rm -rf PortMaster.zip
+
 echo "Extraction complete."
 
 ## PART 3: Add PortMaster to the system
