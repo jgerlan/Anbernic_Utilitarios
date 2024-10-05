@@ -160,10 +160,18 @@ fi
 
 # Download the PortMaster.zip file
 echo "Downloading PortMaster.zip from the latest stable release ($LATEST_STABLE_RELEASE)..."
-curl -L -o PortMaster.zip "$ASSET_URL_GUI"
+curl -L -o "$SCRIPT_DIR/PortMaster.zip" "$ASSET_URL_GUI"
 
 echo "PortMaster.zip download completed."
 
+# Now let's extract PortMaster.zip
+echo "Extracting PortMaster.zip..."
+
+unzip -d "$SCRIPT_DIR/" "$SCRIPT_DIR/PortMaster.zip"
+
+rm -rf "$SCRIPT_DIR/PortMaster.zip"
+
+echo "Extraction complete."
 
 # Now let's download mono-6.12.0.122-aarch64.squashfs
 
@@ -194,18 +202,9 @@ fi
 
 # Download the mono-6.12.0.122-aarch64.squashfs file
 echo "Downloading mono-6.12.0.122-aarch64.squashfs from the latest release ($LATEST_RELEASE_HOSTING)..."
-curl -L -o mono-6.12.0.122-aarch64.squashfs "$ASSET_URL_HOSTING"
+curl -L -o "$SCRIPT_DIR/mono-6.12.0.122-aarch64.squashfs" "$ASSET_URL_HOSTING"
 
 echo "mono-6.12.0.122-aarch64.squashfs download completed."
-
-# Now let's extract PortMaster.zip
-echo "Extracting PortMaster.zip..."
-
-unzip PortMaster.zip 
-
-rm -rf PortMaster.zip
-
-echo "Extraction complete."
 
 ## PART 3: Add PortMaster to the system
 
